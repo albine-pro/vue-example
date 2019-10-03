@@ -1,4 +1,7 @@
 # vue-simple-example
+Simple example of Vue.js usage
+
+<a href="https://vue.webexpert.site" target="_blank">Demo</a>
 
 ## Project setup
 ```

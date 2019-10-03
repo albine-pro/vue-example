@@ -1,3 +1,11 @@
+/1-BEFORE-VUEX
+/2-VUEX-SIMPLE
+/3-BEFORE-MAPSTATE
+/4-MAPSTATE-IMGBLOCK
+/5-MAPSTATE-IMGBLOCK-SPREAD-OPERATOR
+/6-MUTATIONS-SIMPLE
+/7-MUTATIONS-FULL
+
 .DS_Store
 node_modules
 /dist
@@ -19,3 +27,4 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
