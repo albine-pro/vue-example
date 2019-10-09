@@ -1,17 +1,8 @@
 <template>
-  <div class="img_block" v-bind:class="{ anim: detailsPage }">
-    <transition 
-       name="main-img"
-       enter-active-class="animated bounceInDown"  
-       leave-active-class="animated bounceOutDown"  
-       mode="out-in"
-      >
-      <img   
-        :key="activeModel.name"
-        :src="require('@/assets/img/' +  activeModel.name + '.png')"
-        :alt="activeModel.name"
-      > 
-    </transition>  
+    <div class="img_block" v-bind:class="{ anim: detailsPage }">
+        <transition name="main-img" enter-active-class="animated bounceInDown" leave-active-class="animated bounceOutDown" mode="out-in">
+            <img :key="activeModel.name" :src="require('@/assets/img/' +  activeModel.name + '.png')" :alt="activeModel.name">
+        </transition>
     </div>
 </template>
 

@@ -1,50 +1,41 @@
 <template>
-	    <div class="info_block">
+    <div class="info_block">
         <div class="info_block__sub">
-          <div class="top_speed">
-              <div></div>
-              <div>TOP SPEED</div>
-              <span>{{ activeModel.top_speed }}</span>           
-          </div>
+            <div class="top_speed">
+                <div></div>
+                <div>TOP SPEED</div>
+                <span>{{ activeModel.top_speed }}</span>
+            </div>
         </div>
         <div class="info_block__sub">
-          <div class="torque_scale">
-              <div class="lines" v-for="line in activeModel.torque">
+            <div class="torque_scale">
+                <div class="lines" v-for="line in activeModel.torque">
                     <div class="bg"></div>
-                    <div class="line" :style="{ height: line + '%' }"></div>                
-              </div>
-              <span>TORQUE</span>
-          </div>
+                    <div class="line" :style="{ height: line + '%' }"></div>
+                </div>
+                <span>TORQUE</span>
+            </div>
         </div>
         <div class="info_block__sub">
-          <div class="acceleration">
-            <trend
-              :data="activeModel.acceleration"
-              :gradient="['#ffd54f']"
-              :radius="5"
-              auto-draw
-              smooth
-            >
-            </trend>  
-            <span>ACCELERATION</span>           
-          </div>        
+            <div class="acceleration">
+                <trend :data="activeModel.acceleration" :gradient="['#ffd54f']" :radius="5" auto-draw smooth>
+                </trend>
+                <span>ACCELERATION</span>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
-
 export default {
   computed: mapState( [ 'activeModel' ] )
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import '../assets/scss/base';
-
 
    .info_block{
        

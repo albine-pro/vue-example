@@ -1,33 +1,24 @@
 <template>
     <div class="details_page" v-bind:class="{ anim: detailsPage }">
-      <router-link 
-        v-if="!detailsPage" 
-        :to="{ name: 'details', params: { model: activeModel.name } }" 
-        class="button btn1" 
-        >details</router-link>
-      <router-link v-else to="/" class="button btn1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="white">
-          <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z"/>
-        </svg>
-      </router-link>
-    </div> 		
+        <router-link v-if="!detailsPage" :to="{ name: 'details', params: { model: activeModel.name } }" class="button btn1">details</router-link>
+        <router-link v-else to="/" class="button btn1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="white">
+                <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z" />
+            </svg>
+        </router-link>
+    </div>
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
-
 export default {
   computed: { ...mapState( [ 'activeModel', 'detailsPage' ] ) }
 };
-
 </script>
 
 <style lang="scss">
 
 @import '../assets/scss/base';
-
-
 
   .details_page{
   

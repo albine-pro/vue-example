@@ -8,7 +8,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 export default {
   computed: { ...mapState( [ 'detailsPage' ] ) }, 
 };
@@ -25,7 +24,7 @@ export default {
        z-index: 2;
 
        &.__details_page{
-        width: 60%!important;
+        width: 60%;
        }
 
            .title__1{
@@ -57,6 +56,7 @@ export default {
 
           margin: 20px 0 0 50px;
           position: relative;
+          width: 100%;
 
           .tab-button {     
             padding: 6px 10px;      

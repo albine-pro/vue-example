@@ -1,61 +1,63 @@
 <template>
-	<div class="content">		   
-      <div class="block">
-         <span class="min">0</span>        
-         <div class="line">
-           <div class="scale"></div>
-           <div class="pointer__block"> 
-             <div class="ball"></div>
-             <div class="ball_bg"></div>
-           </div>
-         </div>
-         <span class="max">{{ av_speedDisplay }} mph</span>   
-      </div>  
-      <p>Speed Test {{ speedTimeDisplay }} s</p>            		
-	</div>		
+    <div class="content">
+        <div class="block">
+            <span class="min">0</span>
+            <div class="line">
+                <div class="scale"></div>
+                <div class="pointer__block">
+                    <div class="ball"></div>
+                    <div class="ball_bg"></div>
+                </div>
+            </div>
+            <span class="max">{{ av_speedDisplay }} mph</span>
+        </div>
+        <p>Speed Test {{ speedTimeDisplay }} s</p>
+    </div>
 </template>
 
 <script>
-  
 import { mapState } from 'vuex'
 import { TweenLite } from 'gsap'
-
 export default {
-  data(){
-    return  {
-        speedTime: 0,
-        tweenedSpeedTime: 0,
-        av_speed: 0,
-        tweenedav_speed: 0,
-      }
+    data() {
+        return {
+            speedTime: 0,
+            tweenedSpeedTime: 0,
+            av_speed: 0,
+            tweenedav_speed: 0,
+        }
     },
-  computed:{
-    speedTimeDisplay(){
-       return this.tweenedSpeedTime.toFixed(0); 
+    computed: {
+        speedTimeDisplay() {
+            return this.tweenedSpeedTime.toFixed(0);
+        },
+        av_speedDisplay() {
+            return this.tweenedav_speed.toFixed(0);
+        },
+        ...mapState(['activeModel'])
     },
-    av_speedDisplay(){
-       return this.tweenedav_speed.toFixed(0); 
+    watch: {
+        speedTime: function(newValue) {
+            TweenLite.to(this.$data, 2, {
+                tweenedSpeedTime: newValue
+            });
+        },
+        av_speed: function(newValue) {
+            TweenLite.to(this.$data, 2, {
+                tweenedav_speed: newValue
+            });
+        }
     },
-    ...mapState(['activeModel'])
-  },
-  watch: {  
-    speedTime: function(newValue) { 
-      TweenLite.to(this.$data, 2, { tweenedSpeedTime: newValue });  
-    },
-    av_speed: function(newValue) { 
-      TweenLite.to(this.$data, 2, { tweenedav_speed: newValue });  
+    created() {
+        setTimeout(() => {
+
+            this.speedTime = 10
+            this.av_speed = this.activeModel.av_speed
+            document.getElementsByClassName('pointer__block')[0].classList.add("anim")
+
+        }, 2000)
+
     }
-  },
-  created(){
-    setTimeout( () => {
-
-      this.speedTime = 10  
-      this.av_speed = this.activeModel.av_speed   
-      document.getElementsByClassName('pointer__block')[0].classList.add("anim")
-
-    }, 2000)
-
-  }
 };
 </script>
 

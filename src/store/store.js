@@ -24,18 +24,32 @@ export default new Vuex.Store({
   	miles: [{ day: [0] }, { week: [0] }, { month: [0] } ],
   	milesActive: { day: [0], week: [0], month: [0] },
     models: models,
+    menuDetails: false,
+    showMenu: false
   },
   mutations: {
     ACTIVE_MODEL( state, modelId ){
-      // console.log('state: ', state,'  value: ', value)
            state.activeModel = state.models[modelId]
            state.activeModel.index = modelId
+    },
+    MENU_DETAILS(state){
+      state.menuDetails = true
+      setTimeout( () => { state.menuDetails = false },500 )
+    },
+    HIDE_SHOW_MENU(state, status){
+       state.showMenu = status
     }
   },
   actions: {
     setActiveModel({state,commit}, modelId){
       // какое-то действие
       commit('ACTIVE_MODEL', modelId)
+    },
+    menuDetailsAnim({state,commit}){
+      commit('MENU_DETAILS')
+    },
+    hideShowMenuAction({state,commit}, status){
+      commit('HIDE_SHOW_MENU', status)
     }
   },
   getters: {

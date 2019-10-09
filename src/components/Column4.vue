@@ -5,10 +5,8 @@
 </template>
 
 <script>
-
 import { mapState } from 'vuex'
 import SpeedTest from "@/components/SpeedTest.vue"
-
 export default {
   components: {
       SpeedTest
@@ -18,7 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 
 @import '../assets/scss/base';
 
@@ -44,6 +41,5 @@ export default {
 
 
      }
-
 
 </style>
