@@ -1,4 +1,5 @@
 module.exports = { 
+	//publicPath: process.env.NODE_ENV === 'production' ? '/auto/'	: '/',
 	runtimeCompiler: true, 
 	chainWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
