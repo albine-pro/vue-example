@@ -1,5 +1,5 @@
 # vue-simple-example
-Simple example of Vue.js usage
+Vue example <a href="https://dribbble.com/shots/6201001-Car-Dashboard" target="_blank">inspired by</a>  
 
 <a href="https://vue.webexp.site/auto" target="_blank">Demo</a>
 
